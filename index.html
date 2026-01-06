@@ -8,90 +8,49 @@
     <style>
         * { box-sizing: border-box; }
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             background: radial-gradient(circle at top, #2c2c2c 0%, #000000 70%);
-            color: #ffffff;
-            font-family: 'Montserrat', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
+            color: #ffffff; font-family: 'Montserrat', sans-serif;
+            display: flex; flex-direction: column; align-items: center; min-height: 100vh;
         }
-
-        .container {
-            width: 100%;
-            max-width: 400px;
-            padding: 50px 25px;
-            text-align: center;
-        }
-
-        /* Moldura de Ouro com Brilho Intenso */
+        .container { width: 100%; max-width: 400px; padding: 30px 20px; text-align: center; }
+        
         .profile-ring {
-            width: 170px;
-            height: 170px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(145deg, #FFD700, #8B6508);
-            padding: 4px; 
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+            width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 20px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(145deg, #FFD700, #8B6508); padding: 4px;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
         }
+        .profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+        h1 { font-weight: 800; font-size: 22px; color: #D4AF37; margin: 10px 0; }
 
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            background: #000;
+        /* Estilo da Ferramenta */
+        .tool-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #D4AF37;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
         }
-
-        h1 {
-            font-weight: 800;
-            font-size: 24px;
-            color: #D4AF37;
-            margin: 15px 0 5px;
-            letter-spacing: 1px;
+        .tool-box h2 { font-size: 16px; color: #D4AF37; margin-bottom: 15px; }
+        input, textarea {
+            width: 100%; padding: 12px; margin-bottom: 10px;
+            border-radius: 8px; border: 1px solid #333; background: #1a1a1a; color: #fff;
+            font-family: 'Montserrat', sans-serif;
         }
-
-        .tagline {
-            font-size: 14px;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 25px;
+        .btn-tool {
+            width: 100%; padding: 12px; border-radius: 8px; border: none;
+            background: #D4AF37; color: #000; font-weight: bold; cursor: pointer;
             text-transform: uppercase;
         }
+        #result { margin-top: 15px; font-size: 11px; word-break: break-all; color: #fccd4d; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 5px; display: none; }
 
         .btn-gold {
-            display: block;
-            margin-bottom: 18px;
-            padding: 18px;
-            text-decoration: none;
-            color: #000;
-            font-weight: 800;
-            font-size: 15px;
+            display: block; margin-bottom: 15px; padding: 15px;
+            text-decoration: none; color: #000; font-weight: 800; font-size: 14px;
             border-radius: 40px;
             background: linear-gradient(180deg, #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease;
-            border: 1px solid #7a5d0a;
-            text-transform: uppercase;
-        }
-
-        .btn-gold:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
-            filter: brightness(1.1);
-        }
-
-        .footer-handle {
-            margin-top: 40px;
-            color: #ffffff;
-            font-size: 14px;
-            opacity: 0.8;
-            letter-spacing: 2px;
+            border: 1px solid #7a5d0a; text-transform: uppercase;
         }
     </style>
 </head>
@@ -103,15 +62,61 @@
         </div>
 
         <h1>Ramona Abrahão</h1>
-        <div class="tagline">+ Vendas + Sucesso + Liberdade</div>
-        
-        <p style="color: #ccc; font-size: 14px; margin-bottom: 30px;">Empreendedora e Mentora Digital</p>
+        <p style="font-size: 13px; color: #ccc;">+ Vendas + Sucesso + Liberdade</p>
 
-        <a href="COLOQUE_LINK_AQUI" class="btn-gold">O Despertar da Águia</a>
-        <a href="https://wa.me/5551995210840?text=Olá%20Ramona,%20vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20o%20Projeto%20Águia!" class="btn-gold">Fale no WhatsApp</a>
+        <div class="tool-box">
+            <h2>🦅 Criar meu Link com Mensagem</h2>
+            <form id="wa-form" action="https://formspree.io/f/SEU_ID_AQUI" method="POST">
+                <input type="text" name="whatsapp" id="phone" placeholder="Seu Número (ex: 51995210840)" required>
+                <textarea id="msg" name="mensagem" placeholder="Escreva a mensagem que você quer receber..." rows="3"></textarea>
+                <button type="button" class="btn-tool" onclick="generateLink()">Gerar Link Personalizado</button>
+                <div id="result"></div>
+            </form>
+        </div>
 
-        <div class="footer-handle">@ramona.mda</div>
+        <a href="https://wa.me/5551995210840?text=Olá%20Ramona!%20Vim%20pelo%20seu%20site%20e%20quero%20conhecer%20o%20Projeto%20Águia." class="btn-gold">Fale Comigo no WhatsApp</a>
+        <a href="SEU_LINK_DO_PROJETO" class="btn-gold">O Despertar da Águia</a>
+
+        <div style="margin-top:20px; font-size: 12px; opacity: 0.6;">@ramona.mda</div>
     </div>
 
+    <script>
+        function generateLink() {
+            const phoneField = document.getElementById('phone');
+            const msgField = document.getElementById('msg');
+            const resultDiv = document.getElementById('result');
+
+            // Limpa o número (deixa só dígitos)
+            let phone = phoneField.value.replace(/\D/g, '');
+            
+            // Adiciona o 55 do Brasil se a pessoa esquecer
+            if (phone.length === 11 || phone.length === 10) {
+                phone = "55" + phone;
+            }
+
+            const msg = encodeURIComponent(msgField.value);
+            const finalLink = `https://wa.me/${phone}?text=${msg}`;
+            
+            if(phone.length < 10) {
+                alert("Por favor, coloque o número completo com DDD.");
+                return;
+            }
+
+            // Exibe o link e copia para o celular
+            resultDiv.style.display = "block";
+            resultDiv.innerHTML = "<strong>Link pronto e copiado:</strong><br>" + finalLink;
+            
+            navigator.clipboard.writeText(finalLink);
+            alert("Sucesso! Seu link com mensagem foi gerado e copiado.");
+
+            // Envia para o seu Formspree (para você guardar o lead)
+            const form = document.getElementById('wa-form');
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+        }
+    </script>
 </body>
 </html>
