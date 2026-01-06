@@ -3,122 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ramona Abrahão - Projeto Águia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Ramona Abrahão - Oficial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
     <style>
+        * { box-sizing: border-box; }
         body {
             margin: 0;
             padding: 0;
-            background: radial-gradient(circle at top, #1a1a1a 0%, #000000 100%);
+            /* Efeito de luz no topo igual ao seu design */
+            background: radial-gradient(circle at top, #2c2c2c 0%, #000000 70%);
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            text-align: center;
         }
 
         .container {
             width: 100%;
             max-width: 400px;
-            padding: 40px 20px;
+            padding: 50px 25px;
+            text-align: center;
         }
 
-        /* Foto com Brilho Dourado circular */
-        .profile-area {
-            position: relative;
-            margin-bottom: 25px;
+        /* Moldura de Ouro com Brilho Intenso */
+        .profile-ring {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #FFD700, #8B6508);
+            padding: 4px; /* Largura da borda */
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
         }
 
         .profile-img {
-            width: 160px;
-            height: 160px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
-            border: 4px solid #D4AF37;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
             object-fit: cover;
+            background: #000;
         }
 
-        /* Títulos */
         h1 {
+            font-weight: 800;
+            font-size: 24px;
             color: #D4AF37;
-            font-size: 26px;
-            margin: 10px 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            margin: 15px 0 5px;
+            letter-spacing: 1px;
         }
 
-        .subtitle {
-            font-size: 16px;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 5px;
-        }
-
-        .description {
-            color: #cccccc;
+        .tagline {
             font-size: 14px;
-            margin-bottom: 30px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 25px;
+            text-transform: uppercase;
         }
 
-        /* Botões Estilo Ouro */
-        .btn {
+        /* Botões Estilo Barra de Ouro (Luxo) */
+        .btn-gold {
             display: block;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             padding: 18px;
             text-decoration: none;
             color: #000;
-            font-weight: bold;
-            font-size: 16px;
-            border-radius: 50px;
-            background: linear-gradient(145deg, #f5d17a, #b8860b);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: 800;
+            font-size: 15px;
+            border-radius: 40px;
+            /* Gradiente metálico real */
+            background: linear-gradient(180deg, #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
             border: 1px solid #7a5d0a;
+            text-transform: uppercase;
         }
 
-        .btn:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
+            filter: brightness(1.1);
         }
 
-        /* Rodapé */
-        .footer {
+        .footer-handle {
             margin-top: 40px;
-            color: #D4AF37;
+            color: #ffffff;
             font-size: 14px;
-            font-weight: bold;
+            opacity: 0.8;
+            letter-spacing: 2px;
         }
 
-        /* Águia de fundo (opcional) */
-        .eagle-icon {
-            opacity: 0.1;
-            position: fixed;
-            bottom: 20px;
+        /* Silhueta da Águia ao Fundo */
+        .eagle-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            opacity: 0.05;
             z-index: -1;
-            width: 200px;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="profile-area">
+        <img src="https://www.pngarts.com/files/3/Eagle-Silhouette-PNG-Image-Background.png" class="eagle-bg">
+
+        <div class="profile-ring">
             <img src="https://github.com/ramonamda.png" alt="Ramona Abrahão" class="profile-img">
         </div>
 
         <h1>Ramona Abrahão</h1>
-        <div class="subtitle">+ Vendas + Sucesso + Liberdade</div>
-        <div class="description">Empreendedora e Mentora Digital</div>
+        <div class="tagline">+ Vendas + Sucesso + Liberdade</div>
+        
+        <p style="color: #ccc; font-size: 14px; margin-bottom: 30px;">Empreendedora e Mentora Digital</p>
 
-        <a href="SEU_LINK_AQUI" class="btn">O Despertar da Águia</a>
-        <a href="SEU_LINK_AQUI" class="btn">WhatsApp</a>
+        <a href="COLOQUE_SEU_LINK_AQUI" class="btn-gold">O Despertar da Águia</a>
+        <a href="COLOQUE_SEU_LINK_AQUI" class="btn-gold">Fale no WhatsApp</a>
 
-        <div class="footer">@ramona.mda</div>
+        <div class="footer-handle">@ramona.mda</div>
     </div>
-
-    <img src="https://www.pngarts.com/files/3/Eagle-Silhouette-PNG-Image-Background.png" class="eagle-icon">
 
 </body>
 </html>
